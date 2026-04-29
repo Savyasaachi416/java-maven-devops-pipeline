@@ -1,0 +1,20 @@
+---
+- name: Deploy Java Maven App
+  hosts: localhost
+  become: yes
+
+  tasks:
+
+    - name: Install Java
+      apt:
+        name: openjdk-17-jdk
+        state: present
+        update_cache: yes
+
+    - name: Copy JAR file
+      copy:
+        src: ../target/*.jar
+        dest: /opt/app.jar
+
+    - name: Run Java Application
+      shell: nohup java -jar /opt/app.jar &
