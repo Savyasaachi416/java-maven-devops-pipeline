@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'git@github.com:Savyasaachi416/java-maven-devops-pipeline.git'
+                checkout scm
             }
         }
 
