@@ -71,3 +71,12 @@ This project includes Kubernetes manifests for container orchestration and scala
 kubernetes/
 ├── deployment.yaml
 └── service.yaml
+
+
+---
+
+## 📦 Build Artifact
+
+Generated WAR file is available here:
+
+artifacts/java-webapp.war
