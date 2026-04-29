@@ -20,6 +20,5 @@ spec:
       - name: java-webapp
         image: java-webapp:latest
         imagePullPolicy: Never
-
         ports:
         - containerPort: 8080
