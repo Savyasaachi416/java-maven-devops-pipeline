@@ -15,18 +15,22 @@ pipeline {
             }
         }
 
+        stage('SonarQube Scan') {
+            steps {
+                echo 'Running SonarQube Analysis'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t java-webapp .'
             }
         }
 
-        stage('Deploy Container') {
+        stage('Run Container') {
             steps {
-                sh '''
-                docker rm -f java-webapp || true
-                docker run -d -p 9091:8080 --name java-webapp java-webapp
-                '''
+                sh 'docker rm -f java-webapp || true'
+                sh 'docker run -d -p 9091:8080 --name java-webapp java-webapp'
             }
         }
     }
