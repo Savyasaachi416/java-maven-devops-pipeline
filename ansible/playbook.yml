@@ -1,5 +1,5 @@
 ---
-- name: Deploy Java Maven App
+- name: Deploy Java Web App
   hosts: localhost
   become: yes
 
@@ -11,10 +11,10 @@
         state: present
         update_cache: yes
 
-    - name: Copy JAR file
+    - name: Copy WAR file
       copy:
-        src: ../target/*.jar
-        dest: /opt/app.jar
+        src: ../target/java-webapp.war
+        dest: /opt/java-webapp.war
 
-    - name: Run Java Application
-      shell: nohup java -jar /opt/app.jar &
+    - name: Run application
+      shell: nohup java -jar /opt/java-webapp.war &

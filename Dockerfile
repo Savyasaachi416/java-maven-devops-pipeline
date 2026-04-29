@@ -1,14 +1,13 @@
 FROM tomcat:9.0
 
-LABEL maintainer="Savyasaachi"
-LABEL project="java-maven-devops-pipeline"
-LABEL version="1.0"
-LABEL description="Java Maven WAR application deployed on Tomcat using Docker"
-
+# Remove default apps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
+# Copy WAR file
 COPY target/java-webapp.war /usr/local/tomcat/webapps/ROOT.war
 
+# Expose port
 EXPOSE 8080
 
-CMD ["catalina.sh","run"]
+# Start Tomcat
+CMD ["catalina.sh", "run"]

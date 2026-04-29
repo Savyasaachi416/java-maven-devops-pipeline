@@ -9,7 +9,7 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build Maven') {
             steps {
                 sh 'mvn clean package'
             }
@@ -17,15 +17,15 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'sudo docker build -t java-webapp .'
+                sh 'docker build -t java-webapp .'
             }
         }
 
-        stage('Run Container') {
+        stage('Deploy Container') {
             steps {
                 sh '''
-                sudo docker rm -f java-webapp || true
-                sudo docker run -d -p 9091:8080 --name java-webapp java-webapp
+                docker rm -f java-webapp || true
+                docker run -d -p 9091:8080 --name java-webapp java-webapp
                 '''
             }
         }
