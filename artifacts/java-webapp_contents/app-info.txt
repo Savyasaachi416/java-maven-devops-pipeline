@@ -1,0 +1,23 @@
+====================================
+JAVA WEB APP DEVOPS PROJECT
+====================================
+
+Project Name : java-webapp
+Type         : Maven Web Application
+Artifact     : java-webapp.war
+
+Pipeline Flow:
+GitHub → Jenkins → Maven Build → SonarQube → Docker → Deployment
+
+Environment:
+- Java 11
+- Maven 3+
+- Jenkins CI/CD
+- SonarQube Quality Check
+
+Author:
+Savyasaachi
+
+Status:
+Build successful and ready for deployment 🚀
+====================================
