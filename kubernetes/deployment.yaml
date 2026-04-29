@@ -2,18 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: java-webapp
+
 spec:
   replicas: 2
+
   selector:
     matchLabels:
       app: java-webapp
+
   template:
     metadata:
       labels:
         app: java-webapp
+
     spec:
       containers:
       - name: java-webapp
         image: java-webapp:latest
+        imagePullPolicy: Never
+
         ports:
         - containerPort: 8080
