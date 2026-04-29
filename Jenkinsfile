@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Savyasaachi416/java-maven-devops-pipeline.git'
+                git 'https://github.com/Savyasaachi416/java-maven-devops-pipeline.git'
             }
         }
 
@@ -15,17 +15,17 @@ pipeline {
             }
         }
 
-        stage('Docker Build') {
+        stage('Build Docker Image') {
             steps {
-                sh 'docker build -t java-webapp .'
+                sh 'sudo docker build -t java-webapp .'
             }
         }
 
-        stage('Deploy') {
+        stage('Run Container') {
             steps {
                 sh '''
-                docker rm -f java-webapp || true
-                docker run -d -p 9091:8080 --name java-webapp java-webapp
+                sudo docker rm -f java-webapp || true
+                sudo docker run -d -p 9091:8080 --name java-webapp java-webapp
                 '''
             }
         }
