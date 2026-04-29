@@ -14,12 +14,14 @@ This project demonstrates a complete **CI/CD DevOps pipeline** using:
 - Maven (Build Tool)
 - Docker (Containerization)
 - AWS EC2 (Deployment)
+- Kubernetes (Container Orchestration)
+- Ansible (Automation)
 
 ---
 
 ## 🏗️ Architecture Flow
 
-GitHub → Jenkins → Maven Build → Docker Image → Docker Container → EC2 Deployment
+GitHub → Jenkins → Maven Build → Docker Image → Docker Container → Kubernetes Deployment → AWS EC2
 
 ---
 
@@ -29,8 +31,11 @@ GitHub → Jenkins → Maven Build → Docker Image → Docker Container → EC2
 - Maven
 - Jenkins
 - Docker
+- Kubernetes
+- Ansible
 - Git & GitHub
 - AWS EC2
+- Linux
 
 ---
 
@@ -48,19 +53,21 @@ Create Docker image for application.
 ### 4. Deploy Stage
 Run Docker container on EC2 instance.
 
+### 5. Kubernetes Deployment
+Deploy application using Kubernetes Deployment and Service manifests.
+
+### 6. Ansible Automation
+Automate deployment using Ansible playbook.
+
 ---
 
-## 🌐 Application URL
+## ☸️ Kubernetes Deployment
 
-http://13.203.65.163:9091
+This project includes Kubernetes manifests for container orchestration and scalable deployment.
 
----
+### 📁 Kubernetes Files
 
-## 📦 How to Run Locally
-
-```bash
-git clone https://github.com/Savyasaachi416/java-maven-devops-pipeline.git
-cd java-maven-devops-pipeline
-mvn clean package
-docker build -t java-webapp .
-docker run -p 9091:8080 java-webapp
+```text
+kubernetes/
+├── deployment.yaml
+└── service.yaml
