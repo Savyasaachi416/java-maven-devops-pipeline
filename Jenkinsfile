@@ -9,19 +9,19 @@ pipeline {
             }
         }
 
-        stage('Build Maven') {
+        stage('Build') {
             steps {
                 sh 'mvn clean package'
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Docker Build') {
             steps {
                 sh 'docker build -t java-webapp .'
             }
         }
 
-        stage('Run Container') {
+        stage('Deploy') {
             steps {
                 sh '''
                 docker rm -f java-webapp || true
