@@ -3,9 +3,9 @@ pipeline {
 
     stages {
 
-        stage('Git Checkout') {
+        stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'YOUR_GITHUB_REPO_URL'
+                git branch: 'main', url: 'https://github.com/Savyasaachi416/java-maven-devops-pipeline.git'
             }
         }
 
@@ -27,6 +27,6 @@ pipeline {
                 sh 'docker run -d --name javaapp-ci -p 8090:8080 java-webapp:v2'
             }
         }
-
     }
 }
+
