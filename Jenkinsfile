@@ -11,13 +11,7 @@ pipeline {
 
         stage('Build Maven') {
             steps {
-                sh '''
-                docker run --rm \
-                -v $PWD:/app \
-                -w /app \
-                maven:3.9.6-eclipse-temurin-17 \
-                mvn clean package
-                '''
+                sh 'mvn clean package'
             }
         }
 
@@ -27,7 +21,7 @@ pipeline {
             }
         }
 
-        stage('Deploy Container') {
+        stage('Run Container') {
             steps {
                 sh '''
                 docker rm -f java-webapp || true
